@@ -6,7 +6,7 @@ const scissor = "scissor".toUpperCase();
 //SCORE CACHE
 let playerScore = 0;
 let computerScore = 0;
-let getScore = null;
+let setScore = null;
 let gameRound = 1;
 
 //function to get computers choice
@@ -30,7 +30,7 @@ function verifyAnswer(choice) {
     if (choice !== paper) {
       if (choice !== scissor) {
         alert("not Valid selection");
-        getScore = null;
+        setScore = null;
         return getPlayerChoice();
       } else {
         return choice;
@@ -53,17 +53,17 @@ function playOneRound(playerSelection, computerSelection) {
     console.log(
       computerSelection + " beats " + playerSelection + " ,You loose!"
     );
-    return (getScore = false);
+    return (setScore = false);
   }
   // function to declare win
   function youWin() {
     console.log(playerSelection + " beats " + computerSelection + " ,You Win!");
-    return (getScore = true);
+    return (setScore = true);
   }
   // function to declare draw
   function draw() {
     console.log("its a draw");
-    return (getScore = null);
+    return (setScore = null);
   }
 
   // conditional statement to get result
@@ -100,7 +100,7 @@ const game = () => {
     const playerInput = verifyAnswer(playerAnswer);
 
     playOneRound(playerInput, computerInput);
-    scoreBoard(getScore);
+    scoreBoard(setScore);
     console.log("playerScore: " + playerScore);
     console.log("computerScore: " + computerScore);
     gameRound++;
