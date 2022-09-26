@@ -1,3 +1,6 @@
+///////////////////////////////////////////////////
+//-----------VARIABLE DECLARATION----------//
+//////////////////////////////////////////////////
 //GAME CACHE
 //result cache
 const rock = "rock".toUpperCase();
@@ -9,7 +12,11 @@ let computerScore = 0;
 let setScore = null;
 let gameRound = 1;
 
-//function to get computers choice
+///////////////////////////////////////////////////
+//--------------HELPER FUNCTIONS---------//
+//////////////////////////////////////////////////
+
+///////function to get computers choice//////////
 function getComputerChoice() {
   // creating an array for computer to choose from.
   const computerChoice = [rock, paper, scissor];
@@ -18,12 +25,13 @@ function getComputerChoice() {
   return computerChoice[random];
 }
 
-//prompt to get players choice
+///////////////prompt to get players choice///////////////
 const getPlayerChoice = () => {
   //prompt for user input
   const answer = prompt("Select your option: ").toUpperCase();
   return answer;
 };
+//////////function to verify answer////////////
 
 function verifyAnswer(choice) {
   if (choice !== rock) {
@@ -43,42 +51,7 @@ function verifyAnswer(choice) {
   }
 }
 
-//function to play One round of the game
-function playOneRound(playerSelection, computerSelection) {
-  //log players choice
-  console.log("Player: " + playerSelection);
-  console.log("Computer: " + computerSelection);
-  // function to declare loose
-  function youLoose() {
-    console.log(
-      computerSelection + " beats " + playerSelection + " ,You loose!"
-    );
-    return (setScore = false);
-  }
-  // function to declare win
-  function youWin() {
-    console.log(playerSelection + " beats " + computerSelection + " ,You Win!");
-    return (setScore = true);
-  }
-  // function to declare draw
-  function draw() {
-    console.log("its a draw");
-    return (setScore = null);
-  }
-
-  // conditional statement to get result
-  if (playerSelection === computerSelection) {
-    draw();
-  } else if (playerSelection === rock) {
-    computerSelection === paper ? youLoose() : youWin();
-  } else if (playerSelection === paper) {
-    computerSelection === scissor ? youLoose() : youWin();
-  } else if (playerSelection === scissor) {
-    computerSelection === rock ? youLoose() : youWin();
-  }
-}
-
-//function to store calculate score
+//////////function to store calculate score////////////
 function scoreBoard(score) {
   if (score === null) {
     playerScore++;
@@ -90,7 +63,50 @@ function scoreBoard(score) {
   }
 }
 
-//function to play multiple round of games
+///////////////////////////////////////////////////
+//--------------PLAY ONE ROUND FUNCTION---------//
+//////////////////////////////////////////////////
+
+//////////function to play One round of the game//////////////
+function playOneRound(playerSelection, computerSelection) {
+  ////////log players choice/////////////
+  console.log("Player: " + playerSelection);
+  console.log("Computer: " + computerSelection);
+
+  /////// function to declare loose ///////////////
+  function youLoose() {
+    console.log(
+      computerSelection + " beats " + playerSelection + " ,You loose!"
+    );
+    return (setScore = false);
+  }
+  //////// function to declare win ///////////
+  function youWin() {
+    console.log(playerSelection + " beats " + computerSelection + " ,You Win!");
+    return (setScore = true);
+  }
+  /////// function to declare draw ///////////
+  function draw() {
+    console.log("its a draw");
+    return (setScore = null);
+  }
+
+  /////////// conditional statement to get result //////////
+  if (playerSelection === computerSelection) {
+    draw();
+  } else if (playerSelection === rock) {
+    computerSelection === paper ? youLoose() : youWin();
+  } else if (playerSelection === paper) {
+    computerSelection === scissor ? youLoose() : youWin();
+  } else if (playerSelection === scissor) {
+    computerSelection === rock ? youLoose() : youWin();
+  }
+}
+
+///////////////////////////////////////////////////
+//--------------ROUNDS OF GAME FUNCTION---------//
+//////////////////////////////////////////////////
+
 const game = () => {
   for (let i = 0; i < 5; i++) {
     console.log("ROUND: " + gameRound + " Choose your Option");
