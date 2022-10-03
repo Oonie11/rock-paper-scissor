@@ -23,8 +23,22 @@ h1 {
   align-items: center;
   justify-content: center;
 }
-
+/*///////////////////////////////////////////////////*/
 /*///////////////////////// class selectors /////////////////////////*/
+/*///////////////////////////////////////////////////*/
+
+/*///////////////////////// HEADING-SECTION /////////////////////////*/
+
+.btn--reset {
+  font-size: 2.5rem;
+  padding: 1rem 2rem;
+  margin: 1rem 0 1rem auto;
+  width: 12rem;
+}
+.btn--reset:hover {
+  cursor: pointer;
+  color: orangered;
+}
 
 .buttons {
   background-color: grey;
@@ -63,10 +77,13 @@ h1 {
 .display--text {
   font-size: 3rem;
 }
+
 .header {
   font-size: 1.5rem;
   border-bottom: 4px solid skyblue;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* ///////////SCORE-SECTION///////////// */
