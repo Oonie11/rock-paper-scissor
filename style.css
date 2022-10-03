@@ -28,8 +28,6 @@ h1 {
 
 .buttons {
   background-color: grey;
-  display: flex;
-  justify-content: center;
 }
 
 .btn {
@@ -52,11 +50,16 @@ h1 {
 .display {
   height: 10rem;
   margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
   align-items: center;
 }
+
+.display--small {
+  height: 4rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
 .display--text {
   font-size: 3rem;
 }
@@ -66,8 +69,16 @@ h1 {
   margin-bottom: 2rem;
 }
 
-.test {
-  border: 2px dashed var(--primary-color);
+/* ///////////SCORE-SECTION///////////// */
+
+.container--score {
+  margin: 1rem 0;
+}
+
+.score--number {
+  margin: auto 0;
+  margin-left: 1rem;
+  font-size: 4rem;
 }
 
 /*///////////////////////// utility classes /////////////////////////*/
@@ -78,4 +89,15 @@ h1 {
 
 .clr--secondary {
   background-color: var(--clr-secondary);
+}
+
+.horizontal--centre {
+  display: flex;
+  justify-content: center;
+}
+
+.vertical--centre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

@@ -14,23 +14,33 @@
     <header class="container header |">
       <h1 class="heading--primary">Rock-Paper-Scissor</h1>
     </header>
-    <div class="buttons | container">
+    <div class="buttons | container horizontal--centre">
       <button class="btn btn--rock" value="rock">Rock</button
       ><button class="btn btn--paper" value="paper">Paper</button
       ><button class="btn btn--scissor" value="scissor">Scissor</button>
     </div>
     <div class="container | display--container">
-      <div class="container display | clr--primary">
-        <p class="display--text">INSTRUCTIONS</p>
+      <div class="container display | clr--primary horizontal--centre">
+        <p class="text--status | display--text">INSTRUCTIONS</p>
       </div>
-      <div class="container display | clr--secondary">
+      <div class="container display | clr--secondary horizontal--centre">
         <p class="display--text player--text">Player Choose: ❓</p>
       </div>
-      <div class="container display | clr--primary">
+      <div class="container display | clr--primary horizontal--centre">
         <p class="display--text computer--text">Computer Choose: ❓</p>
       </div>
-      <div class="container display | clr--secondary">
-        <p class="display--text">Player: 00 :SCORE: 00 :Computer</p>
+      <div class="container display--small | clr--secondary horizontal--centre">
+        <p class="text--result | display--text">score</p>
+      </div>
+      <div class="container--score | clr--primary horizontal--centre">
+        <div class="container | display--score horizontal--centre">
+          <p class="display--text player--score">player Score :</p>
+          <p class="score--number | player--score--number">0</p>
+        </div>
+        <div class="container | display--score horizontal--centre">
+          <p class="display--text computer--score">computer Score :</p>
+          <p class="score--number | computer--score--number">0</p>
+        </div>
       </div>
     </div>
   </body>

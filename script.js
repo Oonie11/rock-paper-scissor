@@ -24,6 +24,10 @@ const btnPaper = document.querySelector(".btn--paper");
 const btnScissor = document.querySelector(".btn--scissor");
 const playerText = document.querySelector(".player--text");
 const computerText = document.querySelector(".computer--text");
+const playerScoreText = document.querySelector(`.player--score--number`);
+const computerScoreText = document.querySelector(`.computer--score--number`);
+const statusText = document.querySelector(".text--status");
+const resultText = document.querySelector(".text--result");
 
 ///////////////////////////////////////////////////
 //--------------EVENT-HANDLER FUNCTIONS---------//
@@ -78,12 +82,14 @@ const displayComputerChoice = (choice) => {
 //////////function to store calculate score////////////
 function scoreBoard(score) {
   if (score === null) {
-    playerScore++;
-    computerScore++;
+    playerScore;
+    computerScore;
   } else if (score) {
     playerScore++;
+    playerScoreText.textContent = `${playerScore}`;
   } else {
     computerScore++;
+    computerScoreText.textContent = `${computerScore}`;
   }
 }
 
@@ -99,20 +105,18 @@ function playOneRound(playerSelection, computerSelection) {
 
   /////// function to declare loose ///////////////
   function youLoose() {
-    console.log(
-      computerSelection + " beats " + playerSelection + " ,You loose!"
-    );
-    return (setScore = false);
+    resultText.textContent = `${computerSelection} beats ${playerSelection}, You loose!`;
+    setScore = false;
   }
   //////// function to declare win ///////////
   function youWin() {
-    console.log(playerSelection + " beats " + computerSelection + " ,You Win!");
-    return (setScore = true);
+    resultText.textContent = `${playerSelection} beats ${computerSelection}, You Win!`;
+    setScore = true;
   }
   /////// function to declare draw ///////////
   function draw() {
-    console.log("its a draw");
-    return (setScore = null);
+    resultText.textContent = `it's a Draw`;
+    setScore = null;
   }
 
   /////////// conditional statement to get result //////////
@@ -131,32 +135,33 @@ function playOneRound(playerSelection, computerSelection) {
 //--------------ROUNDS OF GAME FUNCTION---------//
 //////////////////////////////////////////////////
 
-const game = () => {
-  for (let i = 0; i < 1; i++) {
-    console.log("ROUND: " + gameRound + " Choose your Option");
+// const game = () => {
+//   for (let i = 0; i < 1; i++) {
+//     console.log("ROUND: " + gameRound + " Choose your Option");
 
-    //storing the answers of both player and computer
-    // const playerInput = getPlayerChoice();
-    // const computerInput = getComputerChoice();
+//     //storing the answers of both player and computer
+//     // const playerInput = getPlayerChoice();
+//     // const computerInput = getComputerChoice();
 
-    playOneRound(playerInput, computerInput);
-    scoreBoard(setScore);
-    console.log("playerScore: " + playerScore);
-    console.log("computerScore: " + computerScore);
-    gameRound++;
-  }
+//     playOneRound(playerInput, computerInput);
+//     scoreBoard(setScore);
+//     console.log("playerScore: " + playerScore);
+//     console.log("computerScore: " + computerScore);
+//     gameRound++;
+//   }
 
-  // if (playerScore === computerScore) {
-  //   console.log("the match is draw");
-  // } else if (playerScore > computerScore) {
-  //   console.log("the winner of this game is  player");
-  // } else {
-  //   console.log("the winner of this game is computer");
-  // }
-};
+// if (playerScore === computerScore) {
+//   console.log("the match is draw");
+// } else if (playerScore > computerScore) {
+//   console.log("the winner of this game is  player");
+// } else {
+//   console.log("the winner of this game is computer");
+// }
+// };
 
 const playRound = () => {
-  console.log("ROUND: " + gameRound + " Choose your Option");
+  statusText.textContent = `ROUND: ${gameRound}`;
+  // console.log("ROUND: " + gameRound + " Choose your Option");
 
   getComputerChoice();
 
