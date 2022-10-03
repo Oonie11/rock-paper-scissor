@@ -1,20 +1,58 @@
 ///////////////////////////////////////////////////
 //-----------VARIABLE DECLARATION----------//
 //////////////////////////////////////////////////
-//GAME CACHE
+
+/////////////////GAME CACHE///////////////////
 //result cache
 const rock = "rock".toUpperCase();
 const paper = "paper".toUpperCase();
 const scissor = "scissor".toUpperCase();
+const rockImg = "✊";
+const paperImg = "🖐";
+const scissorImg = "✌️";
 //SCORE CACHE
 let playerScore = 0;
 let computerScore = 0;
 let setScore = null;
 let gameRound = 1;
+let playerInput;
+let computerInput;
 
+/////////////////DOM-SELECTORS///////////////////
+const btnRock = document.querySelector(".btn--rock");
+const btnPaper = document.querySelector(".btn--paper");
+const btnScissor = document.querySelector(".btn--scissor");
+const playerText = document.querySelector(".player--text");
+const computerText = document.querySelector(".computer--text");
+
+///////////////////////////////////////////////////
+//--------------EVENT-HANDLER FUNCTIONS---------//
+//////////////////////////////////////////////////
+btnRock.addEventListener("click", () => {
+  playerText.textContent = `Player Choose: ${rockImg}`;
+  playerInput = rock;
+  playRound();
+});
+
+btnPaper.addEventListener("click", () => {
+  playerText.textContent = `Player Choose: ${paperImg}`;
+  playerInput = paper;
+  playRound();
+});
+
+btnScissor.addEventListener("click", () => {
+  playerText.textContent = `Player Choose: ${scissorImg}`;
+  playerInput = scissor;
+  playRound();
+});
 ///////////////////////////////////////////////////
 //--------------HELPER FUNCTIONS---------//
 //////////////////////////////////////////////////
+
+///////function to get player choice//////////
+const getPlayerChoice = () => {
+  return playerInput;
+};
 
 ///////function to get computers choice//////////
 function getComputerChoice() {
@@ -22,34 +60,20 @@ function getComputerChoice() {
   const computerChoice = [rock, paper, scissor];
   //generating a random number to grab selection
   const random = Math.floor(Math.random() * computerChoice.length);
-  return computerChoice[random];
+  computerInput = computerChoice[random];
 }
 
-///////////////prompt to get players choice///////////////
-const getPlayerChoice = () => {
-  //prompt for user input
-  const answer = prompt("Select your option: ").toUpperCase();
-  return answer;
-};
-//////////function to verify answer////////////
+//////////function to display computer selection////////////
 
-function verifyAnswer(choice) {
-  if (choice !== rock) {
-    if (choice !== paper) {
-      if (choice !== scissor) {
-        alert("not Valid selection");
-        setScore = null;
-        return getPlayerChoice();
-      } else {
-        return choice;
-      }
-    } else {
-      return choice;
-    }
-  } else {
-    return choice;
+const displayComputerChoice = (choice) => {
+  if (choice === rock) {
+    computerText.textContent = `computer Choose: ${rockImg}`;
+  } else if (choice === paper) {
+    computerText.textContent = `computer Choose: ${paperImg}`;
+  } else if (choice === scissor) {
+    computerText.textContent = `computer Choose: ${scissorImg}`;
   }
-}
+};
 
 //////////function to store calculate score////////////
 function scoreBoard(score) {
@@ -108,12 +132,12 @@ function playOneRound(playerSelection, computerSelection) {
 //////////////////////////////////////////////////
 
 const game = () => {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 1; i++) {
     console.log("ROUND: " + gameRound + " Choose your Option");
+
     //storing the answers of both player and computer
-    const playerAnswer = getPlayerChoice();
-    const computerInput = getComputerChoice();
-    const playerInput = verifyAnswer(playerAnswer);
+    // const playerInput = getPlayerChoice();
+    // const computerInput = getComputerChoice();
 
     playOneRound(playerInput, computerInput);
     scoreBoard(setScore);
@@ -122,13 +146,25 @@ const game = () => {
     gameRound++;
   }
 
-  if (playerScore === computerScore) {
-    console.log("the match is draw");
-  } else if (playerScore > computerScore) {
-    console.log("the winner of this game is  player");
-  } else {
-    console.log("the winner of this game is computer");
-  }
+  // if (playerScore === computerScore) {
+  //   console.log("the match is draw");
+  // } else if (playerScore > computerScore) {
+  //   console.log("the winner of this game is  player");
+  // } else {
+  //   console.log("the winner of this game is computer");
+  // }
 };
 
-game();
+const playRound = () => {
+  console.log("ROUND: " + gameRound + " Choose your Option");
+
+  getComputerChoice();
+
+  playOneRound(playerInput, computerInput);
+  displayComputerChoice(computerInput);
+
+  scoreBoard(setScore);
+  console.log("playerScore: " + playerScore);
+  console.log("computerScore: " + computerScore);
+  gameRound++;
+};
