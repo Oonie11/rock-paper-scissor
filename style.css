@@ -118,3 +118,12 @@ h1 {
   flex-direction: column;
   justify-content: center;
 }
+
+/*///////////////////////// MEDIA-QUERIES /////////////////////////*/
+
+@media (max-width: 600px) {
+  .container {
+    width: 80vw;
+    margin: 0 auto;
+  }
+} ;
