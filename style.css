@@ -58,6 +58,7 @@ h1 {
 
 .container {
   width: 1200px;
+
   margin: 0 auto;
 }
 
@@ -121,9 +122,51 @@ h1 {
 
 /*///////////////////////// MEDIA-QUERIES /////////////////////////*/
 
-@media (max-width: 600px) {
+@media (max-width: 80em) {
   .container {
     width: 80vw;
     margin: 0 auto;
+    margin-top: 1rem;
+  }
+  .horizontal--centre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .display--score {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .container--score > div:nth-child(2) {
+    border-top: 1rem solid white;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media (max-width: 60em) {
+  .container {
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+  .horizontal--centre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .display--score {
+    display: flex;
+    flex-direction: row;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
   }
 } ;
