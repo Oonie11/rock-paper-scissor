@@ -4,10 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
     <!-- STYLE CSS -->
     <link rel="stylesheet" href="./style.css" />
     <!-- SCRIPT JS -->
     <script defer src="./script.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
     <title>Rock Paper Scissor</title>
   </head>
   <body>
@@ -15,25 +29,31 @@
       <h1 class="heading--primary">Rock-Paper-Scissor</h1>
       <button class="btn--reset |">Reset</button>
     </header>
-    <div class="buttons | container horizontal--centre">
-      <button class="btn btn--rock" value="rock">Rock</button
-      ><button class="btn btn--paper" value="paper">Paper</button
-      ><button class="btn btn--scissor" value="scissor">Scissor</button>
+    <div class="buttons | container horizontal--centre border1">
+      <button class="btn btn-primary btn--rock" value="rock">Rock</button
+      ><button class="btn btn-primary btn--paper" value="paper">Paper</button
+      ><button class="btn btn-primary btn--scissor" value="scissor">
+        Scissor
+      </button>
     </div>
     <div class="container | display--container">
-      <div class="container display | clr--primary horizontal--centre">
+      <div class="container display | clr--primary horizontal--centre border1">
         <p class="text--status | display--text">INSTRUCTIONS</p>
       </div>
-      <div class="container display | clr--secondary horizontal--centre">
+      <div
+        class="container display | clr--secondary horizontal--centre border1"
+      >
         <p class="display--text player--text">Player Choose: ❓</p>
       </div>
-      <div class="container display | clr--primary horizontal--centre">
+      <div class="container display | clr--primary horizontal--centre border1">
         <p class="display--text computer--text">Computer Choose: ❓</p>
       </div>
-      <div class="container display--small | clr--secondary horizontal--centre">
+      <div
+        class="container display--small | clr--secondary horizontal--centre border1"
+      >
         <p class="text--result | display--text">SCORE</p>
       </div>
-      <div class="container--score | clr--primary horizontal--centre">
+      <div class="container--score | clr--primary horizontal--centre border1">
         <div class="container | display--score horizontal--centre">
           <p class="display--text player--score">player Score :</p>
           <p class="score--number | player--score--number">0</p>
